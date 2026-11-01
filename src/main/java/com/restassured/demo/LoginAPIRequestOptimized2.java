@@ -12,7 +12,7 @@ public class LoginAPIRequestOptimized2 {
 
 		Response response =
 
-				given()
+			given()
 				.baseUri("http://64.227.160.186:9000/v1")
 				.and()
 				.header("Content-Type", "application/json")
@@ -21,7 +21,7 @@ public class LoginAPIRequestOptimized2 {
 						.log().all()
 					.when()//setup
 						.post("login")// action
-				   .then()//assertion/valdiation
+				  .then()//assertion/valdiation
 				   .log().all()
 				   .statusCode(200)
 				   .and()
