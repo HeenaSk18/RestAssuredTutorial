@@ -10,7 +10,7 @@ import io.restassured.http.ContentType;
 public class LoginAPIRequestOptimized5 {
 
 	public static void main(String[] args) {
-		UserCredentials userCredentials = new UserCredentials("iamfd", "password");
+		UserCredentials userCredentials = new UserCredentials("iamsup", "password");
 
 
 			given()
