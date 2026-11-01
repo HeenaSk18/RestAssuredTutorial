@@ -25,7 +25,14 @@
 			<artifactId>rest-assured</artifactId>
 			<version>6.3.0</version>
 		</dependency>
-
+		<!-- Source:
+		https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.22.4</version>
+			<scope>compile</scope>
+		</dependency>
 
 	</dependencies>
 
