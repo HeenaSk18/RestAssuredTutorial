@@ -32,7 +32,7 @@ public class LoginAPIRequestOptimized7 {
 				  .then()//assertion/valdiation
 //				    .log().status()//logs the response status code
 //				  	.log().body()//logs the response body
-				  .log().ifValidationFails()//Conditional logs
+				  .log().ifValidationFails()//Conditional Logs
 				   .statusCode(200)
 				   .and()
 				   .body("message", Matchers.equalTo("Ok"))
