@@ -4,10 +4,10 @@ import static io.restassured.RestAssured.given;
 
 import java.io.File;
 
-import org.hamcrest.Matcher;
-import org.hamcrest.Matchers;
+import static org.hamcrest.Matchers.*;
 
 import io.restassured.http.ContentType;
+import static io.restassured.module.jsv.JsonSchemaValidator.*;
 
 public class LoginAPIRequestOptimized7 {
 
@@ -32,11 +32,17 @@ public class LoginAPIRequestOptimized7 {
 				  .then()//assertion/valdiation
 //				    .log().status()//logs the response status code
 //				  	.log().body()//logs the response body
-				  .log().ifValidationFails()//Conditional Logs
+				  .log().all()
 				   .statusCode(200)
 				   .and()
-				   .body("message", Matchers.equalTo("Ok"))
+				   .body("message", equalTo("Success"))//Hamcret Matchers //Key Value Check
 				   .and()
+				   .body("data.token", notNullValue())//Check Null
+				   .body(matchesJsonSchemaInClasspath("responseSchema/loginAPIResponseSchema.json"))//Schema Check
+//				   .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("responseSchema/loginAPIResponseSchema.json"))//Schema Check
+//				   .body(JsonSchemaValidator.matchesJsonSchema(new File ("src/main/resources/responseSchema/loginAPISchema.json")))//Schema Check
+				   .and()
+				   .time(lessThan(1500L))//((long)1500)
 				   .extract().response();//return validated response
 			
 //		System.out.println(response.asPrettyString());
