@@ -9,6 +9,8 @@ import static org.hamcrest.Matchers.notNullValue;
 
 import com.restassured.demo.UserCredentials;
 
+import io.restassured.module.jsv.JsonSchemaValidator;
+
 public class LoginAPIRequest {
 
 	public static void main(String[] args) {
@@ -27,6 +29,8 @@ public class LoginAPIRequest {
 			.body("message", equalTo("Success"))
 			.and()
 			.body("data.token", notNullValue())
-			.body(matchesJsonSchemaInClasspath("responseSchema/loginAPIResponseSchema.json"));
+			.body(matchesJsonSchemaInClasspath("responseSchema/loginAPIResponseSchema.json"))
+		    .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("responseSchema/userDetailsResponseSchema.json"));
+	
 	}
 }
