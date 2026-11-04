@@ -1,10 +1,8 @@
 package com.phoenix.requests;
 
-import static io.restassured.RestAssured.*;
-
-import static org.hamcrest.Matchers.*;
-
-import com.fasterxml.jackson.core.JsonParseException;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.lessThan;
 
 import io.restassured.http.Header;
 import io.restassured.module.jsv.JsonSchemaValidator;
