@@ -11,7 +11,7 @@ import com.restassured.demo.UserCredentials;
 public class LoginAPIRequest {
 
 	public static void main(String[] args) {
-		UserCredentials userCreds = new UserCredentials("iamfd", "password");
+		UserCredentials userCreds = new UserCredentials("iamfd", "password"); //POJO clss called model
 
 		given()
 			.baseUri("http://64.227.160.186:9000/v1")
